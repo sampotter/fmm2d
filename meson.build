@@ -1,4 +1,4 @@
-project('fmm2d', ['fortran', 'c'])
+project('fmm2d', ['fortran', 'c'], default_options : ['c_std=c99'])
 
 pkg = import('pkgconfig')
 
@@ -79,9 +79,8 @@ fmm2d_src = [
   'src/stokes/stokkernels2d.f',
 ]
 
-# TODO: set these the right way using meson instead of doing it manually...
-fmm2d_fortran_args = ['-fPIC', '-O3', '-march=native', '-funroll-loops', '-std=legacy', '-w']
-fmm2d_c_args = ['-std=c99'] + fmm2d_fortran_args
+# TODO: set these using meson instead of doing it manually...
+fmm2d_fortran_args = ['-std=legacy', '-w']
 
 fmm2d_lib = library(
   'fmm2d',
