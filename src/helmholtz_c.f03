@@ -12,5 +12,20 @@ contains
     complex(c_double_complex), intent(out) :: pot(ns)
     integer(c_int64_t), intent(out) :: ier
     call hfmm2d_s_c_p(eps, zk, ns, sources, charge, pot, ier)
+
   end subroutine c_hfmm2d_s_c_p
+  subroutine c_hfmm2d_s_cd_p(eps, zk, ns, sources, charge, dipstr, dipvec, pot, ier) &
+       bind(c, name='hfmm2d_s_cd_p')
+    implicit none
+    real(c_double), value :: eps
+    complex(c_double_complex), value, intent(in) :: zk
+    integer(c_int64_t), value :: ns
+    real(c_double), intent(in) :: sources(2, ns)
+    complex(c_double_complex), intent(in) :: charge(ns)
+    complex(c_double_complex), intent(in) :: dipstr(ns)
+    complex(c_double_complex), intent(in) :: dipvec(2, ns)
+    complex(c_double_complex), intent(out) :: pot(ns)
+    integer(c_int64_t), intent(out) :: ier
+    call hfmm2d_s_cd_p(eps, zk, ns, sources, charge, dipstr, dipvec, pot, ier)
+  end subroutine c_hfmm2d_s_cd_p
 end module c_helmholtz

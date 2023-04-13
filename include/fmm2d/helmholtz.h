@@ -9,6 +9,8 @@ extern "C" {
 
 void hfmm2d_s_c_p(double eps, double _Complex zk, int64_t ns, double const *sources, double _Complex const *charge, double _Complex *pot, int64_t *ier);
 
+void hfmm2d_s_cd_p(double eps, double _Complex zk, int64_t ns, double const *sources, double _Complex const *charge, double _Complex const *dipstr, double _Complex const *dipvec, double _Complex *pot, int64_t *ier);
+
 #ifdef __cplusplus
 }
 #endif
