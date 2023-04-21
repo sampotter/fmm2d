@@ -82,11 +82,18 @@ fmm2d_src = [
 # TODO: set these using meson instead of doing it manually...
 fmm2d_fortran_args = ['-std=legacy', '-w']
 
+fmm2d_inc = include_directories('include/fmm2d')
+
 fmm2d_lib = library(
   'fmm2d',
   fmm2d_src,
   fortran_args : fmm2d_fortran_args,
   install : true
+)
+
+fmm2d = declare_dependency(
+  link_with : fmm2d_lib,
+  include_directories = [fmm2d_inc]
 )
 
 install_subdir('include/fmm2d', install_dir : 'include', install_tag : 'devel')
