@@ -91,7 +91,7 @@ fmm2d_lib = library(
   install : true
 )
 
-fmm2d = declare_dependency(
+fmm2d_dep = declare_dependency(
   link_with : fmm2d_lib,
   include_directories : [fmm2d_inc]
 )
