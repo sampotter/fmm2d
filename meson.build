@@ -96,6 +96,8 @@ fmm2d_dep = declare_dependency(
   include_directories : [fmm2d_inc]
 )
 
+meson.override_dependency('fmm2d', fmm2d_dep)
+
 install_subdir('include/fmm2d', install_dir : 'include', install_tag : 'devel')
 
 pkg.generate(fmm2d_lib)
