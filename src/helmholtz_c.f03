@@ -23,7 +23,7 @@ contains
     real(c_double), intent(in) :: sources(2, ns)
     complex(c_double_complex), intent(in) :: charge(ns)
     complex(c_double_complex), intent(in) :: dipstr(ns)
-    complex(c_double_complex), intent(in) :: dipvec(2, ns)
+    real(c_double), intent(in) :: dipvec(2, ns)
     complex(c_double_complex), intent(out) :: pot(ns)
     integer(c_int64_t), intent(out) :: ier
     call hfmm2d_s_cd_p(eps, zk, ns, sources, charge, dipstr, dipvec, pot, ier)
